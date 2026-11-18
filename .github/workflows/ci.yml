@@ -1,4 +1,4 @@
-name: Day08 GitHub Actions CICD Pipeline
+name: Day 08 Docker CI Pipeline
 
 on:
   push:
@@ -36,10 +36,10 @@ jobs:
       - name: Run Automated Tests
         run: |
           python -m pytest -v
-      
+
       - name: Build Docker Image
         run: |
-          docker build -t day08-ci-cd-demo:${{ github.sha }}
+          docker build -t day08-ci-cd-demo:${{ github.sha }} .
 
       - name: Run Docker Container
         run: |
